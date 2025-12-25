@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // add fix delay styles-component
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 export default nextConfig;

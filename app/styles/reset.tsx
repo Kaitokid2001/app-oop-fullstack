@@ -1,5 +1,6 @@
 'use client'
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -56,3 +57,15 @@ export const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
 `;
+
+export const Wrapper = styled.div`
+    // max-width: 1170px;
+    position: relative;
+`
+
+export const Fix = styled.div`
+    // max-width: 1170px;
+    background: red;
+    height: 10000px;
+    padding-top: 100px;
+`

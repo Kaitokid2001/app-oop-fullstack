@@ -4,6 +4,7 @@ import { Poppins  } from "next/font/google";
 import StyledComponentsRegistry from "./lib/registry";
 import Navbar from "./components/navbar/app.navbar";
 import {GlobalStyle, Wrapper} from "./styles/reset";
+import Footer from "./components/footer/app.footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Wrapper>
             <Navbar/>
             {children}
+            <Footer/>
           </Wrapper>
         </StyledComponentsRegistry>
       </body>

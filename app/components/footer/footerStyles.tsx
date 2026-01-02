@@ -1,5 +1,5 @@
 'use client'
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 // reponsive
 const device = {
@@ -154,11 +154,22 @@ export const FooterList = styled.div<BoxProps>`
 `
 
 export const DivTitleHeading = styled.div<BoxProps>`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media ${device.laptop}{
+        border-bottom: 1px solid #10375C;
+    }
+`
+
+export const DivAnimation = styled.div<BoxProps>`
     position: relative;
 
     @media ${device.laptop} {
-        flex-direction: ${({ columnOnMobile }) =>
-            columnOnMobile ? "column" : "row"};
+        display: inline-block;
+        width: 16px;
+        height: 16px;
 
         &::after {
             content: "";
@@ -169,7 +180,6 @@ export const DivTitleHeading = styled.div<BoxProps>`
             height: 2px;
             background: #10375C;
             transform: translateY(-50%);
-            transition: opacity 0.25s ease;
         }
 
         &::before {
@@ -178,11 +188,13 @@ export const DivTitleHeading = styled.div<BoxProps>`
             right: 6px;
             top: 50%;
             width: 2px;
-            height: 10px;
+            height: 14px;
             background: #10375C;
-            transform: translateY(-50%);
-            opacity: ${({ $open }) => ($open ? 0 : 1)};
-            transition: opacity 0.25s ease;
+            transform: translateY(-50%)
+                scaleY(${({ $open }) => ($open ? 0 : 1)});
+
+            transition: transform 0.25s ease;
+            transform-origin: center;
         }
     }
 `
@@ -196,7 +208,6 @@ export const TitleHeading = styled.h3<BoxProps>`
 
     @media ${device.laptop} {
         padding-left: 18px;
-        border-bottom: 1px solid #10375C;
 
         &::before{
             content: "→";

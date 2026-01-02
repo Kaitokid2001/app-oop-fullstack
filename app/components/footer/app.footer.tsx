@@ -17,6 +17,7 @@ import {
     FooterSocialBtnCall,
     FooterList,
     DivTitleHeading,
+    DivAnimation,
     TitleHeading,
     UlList,
     LiList,
@@ -86,8 +87,8 @@ function Footer(){
                             $open={openProducts}
                             onClick={() => setOpenProducts(!openProducts)}
                         >
-                            <TitleHeading>
-                                Products</TitleHeading>
+                            <TitleHeading>Products</TitleHeading>
+                            <DivAnimation $open={openProducts}/>
                         </DivTitleHeading>
                         <UlList $open={openProducts}>
                             <LiList><TitleList>Investments</TitleList></LiList>
@@ -103,6 +104,7 @@ function Footer(){
                                 onClick={() => setOpenClaims(!openClaims)}
                         >
                             <TitleHeading>Claims</TitleHeading>
+                            <DivAnimation $open={openClaims}/>
                         </DivTitleHeading>
                         <UlList $open={openClaims}>
                             <LiList><TitleList>Hospital cash allowance claims</TitleList></LiList>
@@ -119,6 +121,7 @@ function Footer(){
                             onClick={() => setOpenSupport(!openSupport)}
                         >
                             <TitleHeading>Products</TitleHeading>
+                            <DivAnimation $open={openSupport}/>
                         </DivTitleHeading>
                         <UlList $open={openSupport}>
                             <LiList><TitleList>Find a form</TitleList></LiList>
@@ -134,11 +137,21 @@ function Footer(){
                         </UlList>
                     </FooterList>
                     <FooterList>
-                            <TitleHeading>About us</TitleHeading>                    
+                        <DivTitleHeading>
+                            <TitleHeading>About us</TitleHeading> 
+                        </DivTitleHeading>
+                        <DivTitleHeading>
                             <TitleHeading>Join us</TitleHeading>
+                        </DivTitleHeading>
+                        <DivTitleHeading>
                             <TitleHeading>Press releases</TitleHeading>
+                        </DivTitleHeading>
+                        <DivTitleHeading>
                             <TitleHeading>FWD Speak Up</TitleHeading>
+                        </DivTitleHeading>
+                        <DivTitleHeading>
                             <TitleHeading>FWD Speak Up Hotline</TitleHeading>
+                        </DivTitleHeading>
                     </FooterList>
                 </FooterTop>
                 <FooterBottom>

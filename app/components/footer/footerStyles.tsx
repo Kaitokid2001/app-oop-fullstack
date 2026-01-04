@@ -157,14 +157,24 @@ export const DivTitleHeading = styled.div<BoxProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 
     @media ${device.laptop}{
         border-bottom: 1px solid #10375C;
     }
 `
 
-export const DivAnimation = styled.div<BoxProps>`
+export const AnimationInput = styled.input.attrs({ type: 'checkbox' })`
+    appearance: none;
+    width: 100%;
+    padding 0;
+    margin: 0;
+    cursor: pointer;
+`
+
+export const DivAnimation = styled.label<BoxProps>`
     position: relative;
+    cursor: pointer;
 
     @media ${device.laptop} {
         display: inline-block;
@@ -180,6 +190,9 @@ export const DivAnimation = styled.div<BoxProps>`
             height: 2px;
             background: #10375C;
             transform: translateY(-50%);
+            transition: opacity 200ms ease-in-out, width 200ms ease-in-out,
+                rotate 200ms ease-in-out, translate 200ms ease-in-out,
+                background-color 200ms ease-in-out, transform 200ms ease-in-out;
         }
 
         &::before {
@@ -190,11 +203,24 @@ export const DivAnimation = styled.div<BoxProps>`
             width: 2px;
             height: 14px;
             background: #10375C;
-            transform: translateY(-50%)
-                scaleY(${({ $open }) => ($open ? 0 : 1)});
+            transform: translateY(-50%);
+            transition: opacity 200ms ease-in-out, width 200ms ease-in-out,
+                rotate 200ms ease-in-out, translate 200ms ease-in-out,
+                background-color 200ms ease-in-out, transform 200ms ease-in-out;
+                
+        }
 
-            transition: transform 0.25s ease;
-            transform-origin: center;
+        &:has(${AnimationInput}:checked)::before{
+            transform: rotate(90deg);
+            translate: 0 -7px;
+        }
+
+        &:has(${AnimationInput}:checked)::after{
+            transform: rotate(90deg);
+            translate: 0 -7px;
+            opacity: 0;
+            width: 0;
+            pointer-events: none;
         }
     }
 `

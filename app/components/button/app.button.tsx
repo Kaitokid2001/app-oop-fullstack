@@ -10,7 +10,7 @@ export const Button = styled.button`
     line-height: 1;
     border: none;
     border-radius: 6px;
-    background-color: #f47c20;
+    background-color: #10375C;
     white-space: nowrap;
     cursor: pointer;
 

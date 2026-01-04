@@ -18,6 +18,7 @@ import {
     FooterList,
     DivTitleHeading,
     DivAnimation,
+    AnimationInput,
     TitleHeading,
     UlList,
     LiList,
@@ -34,7 +35,6 @@ function Footer(){
     const [openProducts, setOpenProducts] = useState(false);
     const [openClaims, setOpenClaims] = useState(false);
     const [openSupport, setOpenSupport] = useState(false);
-    const [open, setOpen] = useState(false);
 
     return(
         <Wrapper>
@@ -88,7 +88,12 @@ function Footer(){
                             onClick={() => setOpenProducts(!openProducts)}
                         >
                             <TitleHeading>Products</TitleHeading>
-                            <DivAnimation $open={openProducts}/>
+                            <DivAnimation $open={openProducts}>
+                                <AnimationInput
+                                    checked={openProducts}
+                                    onChange={(e) => setOpenProducts(e.target.checked)}
+                                />
+                            </DivAnimation>
                         </DivTitleHeading>
                         <UlList $open={openProducts}>
                             <LiList><TitleList>Investments</TitleList></LiList>
@@ -104,7 +109,12 @@ function Footer(){
                                 onClick={() => setOpenClaims(!openClaims)}
                         >
                             <TitleHeading>Claims</TitleHeading>
-                            <DivAnimation $open={openClaims}/>
+                            <DivAnimation $open={openClaims}>
+                                <AnimationInput
+                                    checked={openClaims}
+                                    onChange={(e) => setOpenClaims(e.target.checked)}
+                                />
+                            </DivAnimation>
                         </DivTitleHeading>
                         <UlList $open={openClaims}>
                             <LiList><TitleList>Hospital cash allowance claims</TitleList></LiList>
@@ -121,7 +131,12 @@ function Footer(){
                             onClick={() => setOpenSupport(!openSupport)}
                         >
                             <TitleHeading>Products</TitleHeading>
-                            <DivAnimation $open={openSupport}/>
+                            <DivAnimation $open={openSupport}>
+                                <AnimationInput
+                                    checked={openSupport}
+                                    onChange={(e) => setOpenSupport(e.target.checked)}
+                                />
+                            </DivAnimation>
                         </DivTitleHeading>
                         <UlList $open={openSupport}>
                             <LiList><TitleList>Find a form</TitleList></LiList>

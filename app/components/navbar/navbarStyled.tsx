@@ -3,24 +3,33 @@ import styled from "styled-components";
 
 // reponsive
 const device = {
-  mobile: `(max-width: 576px)`,
-  tablet: `(max-width: 768px)`,
-  laptop: `(max-width: 1024px)`,
+    mobile: `(max-width: 576px)`,
+    tablet: `(max-width: 768px)`,
+    laptop: `(max-width: 1024px)`,
 };
 
 interface BoxProps {
-  $open?:boolean;
+    display?:boolean;
+    $open?:boolean;
+    $show?: boolean;
 }
 
-export const Container = styled.header`
-    width: 100%;
+export const Container = styled.header<BoxProps>`
+    height: 75px;
     display: flex;
-    position: absolute;
+    position: fixed;
+    top: ${({ $show }) => ($show ? "0" : "-80px")};
+    left: 0;
+    width: 100%;
+    transition: top 200ms ease-in-out,
+        transform 200ms ease-in-out,
+        opacity 200ms ease-in-out;   
 `
 
 //Header hidden
 export const HeaderHidden = styled.div`
     width: 100px;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,29 +107,14 @@ export const MenuHiddenOpen = styled.label<BoxProps>`
     }
 `
 
-//sidebar
-export const HiddenSidebar = styled.aside<BoxProps>`
-    display: none;
-    width: 100%;
-    height: 100vh;
-    background-color: #fff;
-
-    @media ${device.laptop} {
-        display: ${({ $open }) => ($open ? "block" : "none")};
-    }
-`
-
-
-
 // HeaderMenu
 export const Header = styled.div`
     flex: 1;
-    height: 75px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
     border-bottom-left-radius: 25px;
+    background-color: #fff;
 `
 
 export const HeadingMenu = styled.div`
@@ -134,16 +128,35 @@ export const HeadingMenu = styled.div`
         gap: 0;
     }
 `
+
+//sidebar
+export const HiddenSidebar = styled.div<BoxProps>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media ${device.laptop} {
+        display: ${({ $open }) => ($open ? "block" : "none")};
+        
+        ${({ $open }) =>
+          $open &&
+          `
+            position: fixed;
+            top: 75px;
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - 75px);
+            background: blue;
+            z-index: 90;
+          `}
+    }
+`
+
 export const HeadingBody = styled.div<BoxProps>`
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-
-    @media ${device.laptop} {
-        display: ${({ $open }) =>
-            $open ? "flex" : "none"};
-    }
 `
 
 export const HeadingBodyUs = styled.div<BoxProps>`
@@ -157,16 +170,11 @@ export const HeadingBodyUs = styled.div<BoxProps>`
     &::before{
         content: "|";
         position: absolute;
-        left: 0;
+        left: 10px;
         top: 50%;
         transform: translateY(-50%);
         color: #dbdfe1; 
         font-weight: 600;
-    }
-
-    @media ${device.laptop} {
-        display: ${({ $open }) =>
-            $open ? "flex" : "none"};
     }
 `
 export const MenuTitle = styled.p`
@@ -196,4 +204,5 @@ export const BodyMenu = styled.div`
         gap: 10px;
     }
 `
+
 

@@ -58,13 +58,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Wrapper = styled.div`
-    // max-width: 1170px;
-`
-
 export const Fix = styled.div`
     // max-width: 1170px;
     background: red;
     height: 1000px;
-    padding-top: 100px;
 `

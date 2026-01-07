@@ -231,9 +231,22 @@ export const TitleHeading = styled.h3<BoxProps>`
     font-weight: 700;
     line-height: 1.5;
     position: relative;
+    user-select: none;
+
+    &:hover{
+        background-color: #10375C;
+        color: #fff;
+        opacity: 0,7;
+    }
 
     @media ${device.laptop} {
         padding-left: 18px;
+
+        &:hover{
+            background: none;
+            color: #10375C;
+            opacity: 1;
+        }
 
         &::before{
             content: "→";
@@ -259,6 +272,7 @@ export const UlList = styled.ul<BoxProps>`
 
 export const LiList = styled.li`
     margin-bottom: 10px;
+    user-select: none;
 `
 
 export const TitleList = styled.span`
